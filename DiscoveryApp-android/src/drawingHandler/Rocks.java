@@ -25,6 +25,8 @@ public class Rocks extends AbstractGameObject {
 	
 	public void setLength(int length){
 		this.length = length;
+		// update boucing box for collision detection
+		bounds.set(0, 0, dimension.x * length, dimension.y);
 	}
 	
 	public void increaseLenth(int amount){

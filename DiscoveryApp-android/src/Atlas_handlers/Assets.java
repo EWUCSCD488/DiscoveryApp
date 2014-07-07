@@ -25,6 +25,9 @@ public class Assets implements Disposable, AssetErrorListener {
 	public MountainAsset mountain;
 	public SkyAsset sky;
 	
+	// fonts asset
+	public AssetFonts fonts;
+	
 	
 	// prevent instantiation from other classes
 	private Assets(){}
@@ -53,6 +56,9 @@ public class Assets implements Disposable, AssetErrorListener {
 			ground = new GroundAsset(atlas);
 			mountain = new MountainAsset(atlas);
 			sky = new SkyAsset(atlas);
+			
+			// create fonts
+			fonts = new AssetFonts();
 		}
 		
 	}
@@ -64,7 +70,14 @@ public class Assets implements Disposable, AssetErrorListener {
 
 	@Override
 	public void dispose() {
+		// dispose assetmanager
 		this.assetManager.dispose();
+		
+		// dispost fonts 
+		fonts.defaultBig.dispose();
+		fonts.defaultNormal.dispose();
+		fonts.defaultSmall.dispose();
+		
 	}
 
 }

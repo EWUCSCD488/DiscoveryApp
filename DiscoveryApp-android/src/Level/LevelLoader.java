@@ -1,24 +1,22 @@
 package Level;
 
-import java.util.ArrayList;
-
-import Atlas_handlers.Assets;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 
 import drawingHandler.AbstractGameObject;
 import drawingHandler.Clouds;
+import drawingHandler.Coins;
+import drawingHandler.Dinasour;
+import drawingHandler.Leather;
 import drawingHandler.Mountains;
 import drawingHandler.Rocks;
 
 public class LevelLoader {
 	public static final String TAG = LevelLoader.class.getName();
-
+	
+	
 	public enum BLOCK_TYPE {
 		EMPTY(0, 0, 0), // black
 		ROCK(0, 255, 0), // green
@@ -42,16 +40,25 @@ public class LevelLoader {
 	}// enum
 
 	public Array<Rocks> rocks;
-
 	public Mountains mountains;
 	public Clouds clouds;
+	public Dinasour dinasour;
+	public Array<Coins> coins;
+	public Array<Leather> specialCoin;
+	
+	
+	
 	public LevelLoader(String filename) {
 		init(filename);
 	}
 
 	public void init(String filename){
-		rocks = new Array<Rocks>();
 		
+		dinasour = null;
+		coins = new Array<Coins>();
+		specialCoin = new Array<Leather>();
+		
+		rocks = new Array<Rocks>();
 		// load image file that represenets the level data
 		Pixmap pixmap = new Pixmap(Gdx.files.internal(filename));
 		//scan pixels from top left to bottom right

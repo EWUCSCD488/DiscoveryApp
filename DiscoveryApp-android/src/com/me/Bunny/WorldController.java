@@ -18,11 +18,10 @@ import com.badlogic.gdx.math.Vector2;
 public class WorldController implements GestureListener{
 	private static final String TAG = WorldController.class.getName();
 
-	// ADD SPRITES
-	public Sprite[] testSprites;
-	public int selectedSprite;
 	public LevelLoader level;
 	public CameraHelper cameraHelper;
+	public int lives;
+	public int score;
 	
 	public WorldController() {
 		init();
@@ -33,64 +32,18 @@ public class WorldController implements GestureListener{
 		initLevel();
 		cameraHelper = new CameraHelper();
 		Gdx.input.setInputProcessor(new GestureDetector(this));
+		lives = Constants.LIVES_START;
 		
+	}
+	
+	public int getLives(){
+		return lives;
 	}
 
 	private void initLevel() {
 		level = new LevelLoader(Constants.LEVEL_01);
+		score = 0;
 	}
-
-	/*private void initTestObjects() {
-		
-
-		// CREATE EMPTY POT SIZED PIXMAP WITH 8 BIT RGBA PIXEL DATA
-		int width = 32;
-		int height = 32;
-		//Pixmap pixmap = createProceduralPixmap(width, height); // need to know
-																// what this is
-																// ?
-		// CREATE NEW TEXTURE FROM PIXMAP DATA
-		//Texture texture = new Texture(pixmap);
-		
-		ArrayList<TextureRegion> regions = new ArrayList<TextureRegion>();
-		
-		regions.add(Assets.instance.cloud.cloud1);
-		regions.add(Assets.instance.cloud.cloud2);
-		regions.add(Assets.instance.cloud.cloud3);
-		
-		regions.add(Assets.instance.coin.coin);
-		
-		regions.add(Assets.instance.dinasour.cuteDinasour);
-		
-		regions.add(Assets.instance.ground.edge);
-		regions.add(Assets.instance.ground.middle);
-		
-		regions.add(Assets.instance.mountain.moutainLeft);
-		regions.add(Assets.instance.mountain.moutainRight);
-		
-		regions.add(Assets.instance.sky.sky);
-		
-		// CREATE NEW ARRAY FOR 5 SPRITES
-				testSprites = new Sprite[regions.size()];
-		
-		// create new sprites using the just created texture
-		//for (int i = 0; i < testSprites.length; i++) {
-		for(TextureRegion element : regions){
-			Sprite spr = new Sprite(element);
-			spr.setSize(1, 1);
-			spr.setOrigin(spr.getWidth() / 2.0f, spr.getHeight() / 2.0f);
-
-			float randomX = MathUtils.random(-2.0f, 2.0f);
-			float randomY = MathUtils.random(-2.0f, 2.0f);
-			spr.setPosition(randomX, randomY);
-			// Put new sprite into array
-			 testSprites[regions.indexOf(element)] = spr;
-			 //Log.d(TAG, "location at : " + testSprites[i].getX()+  " , "+  testSprites[i].getY());
-		}
-		// Set first sprite as selected one
-		 selectedSprite = 2;
-
-	}*/
 
 	private Pixmap createProceduralPixmap(int width, int height) {
 		Pixmap pixmap = new Pixmap(width, height, Format.RGBA8888);
@@ -109,24 +62,7 @@ public class WorldController implements GestureListener{
 	}
 
 	public void update(float deltaTime) {
-		//handleDebugInput(deltaTime);
-		//updateTestObjects(deltaTime);
 		cameraHelper.update(deltaTime);
-	}
-
-	private void moveSelectedSprite(float x, float y){
-		testSprites[selectedSprite].translate(x, y);
-	}
-
-	private void updateTestObjects(float deltaTime) {
-		// Get current rotation from selected sprite
-		float rotation = testSprites[selectedSprite].getRotation();
-		// Rotate sprite by 90 degrees per second
-		rotation += 90 * deltaTime;
-		// Wrap around at 360 degrees
-		rotation %= 360;
-		// Set new rotation value to selected sprite
-		testSprites[selectedSprite].setRotation(rotation);
 	}
 
 	@Override
