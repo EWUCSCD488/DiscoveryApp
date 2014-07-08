@@ -62,6 +62,7 @@ public class WorldController implements GestureListener{
 	}
 
 	public void update(float deltaTime) {
+		level.update(deltaTime);
 		cameraHelper.update(deltaTime);
 	}
 

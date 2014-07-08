@@ -13,7 +13,7 @@ public class Dinasour extends AbstractGameObject {
 	private final float JUMP_TIME_MAX = 0.3f;
 	private final float JUMP_TIME_MIN = 0.1f;
 	private final float JUMP_TIME_OFFSET_FLYING = JUMP_TIME_MAX - 0.018f;
-
+  
 	public enum VIEW_DIRECTION {
 		LEFT, RIGHT
 	}

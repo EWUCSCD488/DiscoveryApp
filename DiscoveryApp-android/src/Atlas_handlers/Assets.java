@@ -24,6 +24,7 @@ public class Assets implements Disposable, AssetErrorListener {
 	public GroundAsset ground;
 	public MountainAsset mountain;
 	public SkyAsset sky;
+	public SpecialCoinAsset specialCoin;
 	
 	// fonts asset
 	public AssetFonts fonts;
@@ -56,6 +57,7 @@ public class Assets implements Disposable, AssetErrorListener {
 			ground = new GroundAsset(atlas);
 			mountain = new MountainAsset(atlas);
 			sky = new SkyAsset(atlas);
+			specialCoin = new SpecialCoinAsset(atlas);
 			
 			// create fonts
 			fonts = new AssetFonts();

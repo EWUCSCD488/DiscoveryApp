@@ -16,6 +16,7 @@ public class Constants {
 		public static final String GROUND_MIDDLE = "rock_middle";
 		
 		public static final String COIN_NAME = "item_gold_coin";
+		public static final String SPECIAL_COIN_NAME = "item_feather";
 		
 		public static final String CLOUD1 = "cloud01";
 		public static final String CLOUD2 = "cloud02";
