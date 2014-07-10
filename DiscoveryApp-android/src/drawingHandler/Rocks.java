@@ -21,6 +21,7 @@ public class Rocks extends AbstractGameObject {
 		regMiddle = Assets.instance.ground.middle;
 		// starting length at 1
 		length = 1;
+		bounds.set(0, 0, dimension.x * length, dimension.y);
 	}
 	
 	public void setLength(int length){

@@ -107,10 +107,22 @@ public class LevelLoader {
 					obj.position.set(pixelX,baseHeight * obj.dimension.y
 					+ offsetHeight);
 					specialCoin.add((SpecialCoin)obj);
-				}
+				}else {
+					int r = 0xff & (currentPixel >>> 24); //red color channel
+					int g = 0xff & (currentPixel >>> 16); //green color channel
+					int b = 0xff & (currentPixel >>> 8); //blue color channel
+					int a = 0xff & currentPixel; //alpha channel
+					Gdx.app.error(TAG, "Unknown object at x<" + pixelX
+					+ "> y<" + pixelY
+					+ ">: r<" + r
+					+ "> g<" + g
+					+ "> b<" + b
+					+ "> a<" + a + ">");
+					}
 				
-				
+				lastPixel = currentPixel;
 			} // second for loop
+			
 		}// first for loop
 		
 		// decoration
@@ -148,7 +160,7 @@ public class LevelLoader {
 	}
 	
 	public void update (float deltaTime) {
-		dinasour.update(deltaTime);
+		
 		for(Rocks rock : rocks)
 		rock.update(deltaTime);
 		for(Coins goldCoin : coins)
@@ -156,6 +168,7 @@ public class LevelLoader {
 		for(SpecialCoin feather : specialCoin)
 		feather.update(deltaTime);
 		clouds.update(deltaTime);
+		dinasour.update(deltaTime);
 		}
 	
 }
