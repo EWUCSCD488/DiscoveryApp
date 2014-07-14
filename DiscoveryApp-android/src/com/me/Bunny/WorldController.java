@@ -220,6 +220,10 @@ public class WorldController implements GestureListener {
 	@Override
 	public boolean touchDown(float x, float y, int pointer, int button) {
 		// TODO Auto-generated method stub
+		
+		level.dinasour.setJumping(true);
+		level.dinasour.setJumping(false);
+		
 		return false;
 	}
 
@@ -246,7 +250,10 @@ public class WorldController implements GestureListener {
 
 	@Override
 	public boolean longPress(float x, float y) {
-
+		
+		level.dinasour.setJumping(true);
+		level.dinasour.setJumping(false);
+		
 		return false;
 	}
 

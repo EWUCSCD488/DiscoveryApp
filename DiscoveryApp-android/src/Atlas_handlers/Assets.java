@@ -38,6 +38,8 @@ public class Assets implements Disposable, AssetErrorListener {
 		this.assetManager.setErrorListener(this);
 		this.assetManager.load(Constants.TEXTURE_ATLAS_OBJECTS, TextureAtlas.class);
 		this.assetManager.finishLoading();
+		this.assetManager.load(Constants.TEXTURE_ATLAS_DINASOUR, TextureAtlas.class);
+		this.assetManager.finishLoading();
 		Log.d(TAG, "Number of assets loaded: "+ this.assetManager.getAssetNames().size);
 		
 		for(String element :  this.assetManager.getAssetNames()){
@@ -45,7 +47,7 @@ public class Assets implements Disposable, AssetErrorListener {
 		}
 		
 		TextureAtlas atlas = this.assetManager.get(Constants.TEXTURE_ATLAS_OBJECTS);
-		
+		TextureAtlas atlas_dinasour = this.assetManager.get(Constants.TEXTURE_ATLAS_DINASOUR);
 		// anable texture filtering for pixel smoothing
 		for( Texture t : atlas.getTextures() ){
 			t.setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -53,7 +55,7 @@ public class Assets implements Disposable, AssetErrorListener {
 			// create game resource objects
 			cloud = new CloudAsset(atlas);
 			coin = new CoinAsset(atlas);
-			dinasour = new DinasourAsset(atlas);
+			dinasour = new DinasourAsset(atlas_dinasour);
 			ground = new GroundAsset(atlas);
 			mountain = new MountainAsset(atlas);
 			sky = new SkyAsset(atlas);

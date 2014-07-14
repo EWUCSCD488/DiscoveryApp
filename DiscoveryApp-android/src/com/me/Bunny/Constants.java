@@ -9,8 +9,9 @@ public class Constants {
 		public static final float VIEWPORT_GUI_HEIGHT = 480.0f;
 		
 		public static final String TEXTURE_ATLAS_OBJECTS = "canyonbunny.pack";
+		public static final String TEXTURE_ATLAS_DINASOUR = "Dinasour.pack";
 		
-		public static final String DINASOUR_NAME = "bunny_head";				// need to change later
+		public static final String DINASOUR_NAME = "dinoright";				// need to change later
 		
 		public static final String GROUND_EDGE = "rock_edge";
 		public static final String GROUND_MIDDLE = "rock_middle";
@@ -28,7 +29,7 @@ public class Constants {
 		public static final String MOUNTIAN_RIGHT = "mountain_right";
 		
 		// Location of image file for level 01
-		 public static final String LEVEL_01 = "levels/level-01test.png";
+		 public static final String LEVEL_01 = "levels/level-01test1.png";
 		 
 		 public static final int LIVES_START = 3;
 		public static final String GAMEFONTS = "fonts/myriad.fnt";
